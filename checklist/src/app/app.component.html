@@ -13,12 +13,16 @@
         <div class="col-2 itemm">Unit</div>
         <div class="col-2 itemm">Action</div>
       </div>
-      <div class="row">
-        <div class="col-6 itemm">Tomato</div>
-        <div class="col-2 itemm">2</div>
-        <div class="col-2 itemm">Kg</div>
-        <div class="col-2 itemm">Action</div>
-      </div>
+      <form [formGroup]="form" (ngSubmit)="saveItems()">
+        <div class="row" *ngFor="let item of form.controls.items.controls; let i = index">
+          <input type="text" class="col-6 itemm" formControlName='name'/>
+          <input type="text" class="col-2 itemm" formControlName='quantity'/>
+          <input type="text" class="col-2 itemm" formControlName='unit'/>
+          <button class="col-2 itemm btn btn-danger">Delete</button>
+        </div>
+      </form>
+      <button class="btn btn-secondary" (click)="addItems()">Add Item</button>
+      <button type="submit" class="btn btn-primary">Save list</button>
     </div>
   </div>
   <div class="footer">
