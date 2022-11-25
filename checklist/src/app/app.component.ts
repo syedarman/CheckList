@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +12,9 @@ export class AppComponent {
     items :  this.formBuilder.array([this.getItem()], Validators.required)
   });
   
+  items(){
+    return this.form.get("items") as FormArray;
+  }
 
   addItems(){
     this.form.controls.items.push(this.getItem());
@@ -27,5 +30,9 @@ export class AppComponent {
 
   saveItems(){
     console.log(this.form.value);
+  }
+
+  removeItem(itemIndex : number){
+    this.items().removeAt(itemIndex);
   }
 }
