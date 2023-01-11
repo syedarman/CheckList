@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateListComponent } from './create-list/create-list.component';
 import { AuthGuard } from './guard/auth.guard';
 import { LoginComponent } from './login/login.component';
+import { ViewListComponent } from './view-list/view-list.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,11 @@ const routes: Routes = [
   {
     path:"create-list",
     component:CreateListComponent,
+    canActivate : [AuthGuard]
+  },
+  {
+    path:"view-list",
+    component:ViewListComponent,
     canActivate : [AuthGuard]
   },
   {

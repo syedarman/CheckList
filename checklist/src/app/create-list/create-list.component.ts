@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { SharedServiceService } from '../services/shared-service.service';
 
 @Component({
   selector: 'app-create-list',
@@ -8,7 +10,9 @@ import { FormArray, FormBuilder, Validators } from '@angular/forms';
 })
 export class CreateListComponent implements OnInit {
 
-  constructor(private formBuilder : FormBuilder){}
+  constructor(private formBuilder : FormBuilder,
+     private sharedService: SharedServiceService,
+     private router: Router){}
 
   ngOnInit(): void {
   }
@@ -35,6 +39,8 @@ export class CreateListComponent implements OnInit {
 
   saveItems(){
     console.log(this.form.value);
+    this.sharedService.saveList(this.form.value);
+    this.router.navigateByUrl('view-list')
   }
 
   removeItem(itemIndex : number){
