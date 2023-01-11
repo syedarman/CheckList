@@ -12,12 +12,14 @@ import {
   SocialAuthServiceConfig,
 } from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
+import { ViewListComponent } from './view-list/view-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    CreateListComponent
+    CreateListComponent,
+    ViewListComponent
   ],
   imports: [
     BrowserModule,
