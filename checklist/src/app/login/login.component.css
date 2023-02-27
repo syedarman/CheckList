@@ -22,3 +22,9 @@
     width: 80%;
     margin-top: 7px;
 }
+
+@media only screen and (max-width:400px){
+    #googleLoginText{
+        display: none;
+    }
+}
